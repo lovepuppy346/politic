@@ -102,25 +102,8 @@ router.delete('/delete/:id', async(req, res)=>{
   }
 })
 
-
-
-router.get('/archives', function(req, res, next) {
-  res.render('archives', { title: 'Express4' });
-});
-
-
-router.get('/categories', function(req, res, next) {
-  res.render('categories', { title: 'Express4' });
-});
-router.get('/article', function(req, res, next) {
-  res.render('article', { title: 'Express4' });
-});
 router.get('/signup', function(req, res, next) {
   res.render('signup', { title: 'Express4' });
 });
-router.get('/youtube', function(req, res, next) {
-  res.render('youtube', { title: 'Express4' });
-});
-
 
 module.exports = router;

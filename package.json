@@ -6,11 +6,14 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
     "express-ejs-extend": "0.0.1",
+    "express-session": "^1.17.3",
     "firebase-admin": "^11.8.0",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",

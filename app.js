@@ -3,10 +3,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session')
+var flash = require('connect-flash');
+
 // var firebase = require('firebase');
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const branchesRouter = require('./routes/branches');
+const dashboardRouter = require('./routes/dashboard');
+
 
 const app = express();
 
@@ -30,9 +33,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//express-session
+app.use(session({    
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 100 * 1000 }
+}))
+app.use(flash());  //connect-flash
+
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/branches', branchesRouter);
+app.use('/dashboard', dashboardRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
